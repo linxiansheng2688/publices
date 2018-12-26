@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta id="wxKeywords" name="Keywords" content="<keywords />">
+    <meta id="wxDescription" name="Description" content="<description />" />
+    <meta name="apple-touch-fullscreen" content="YES" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta http-equiv="Expires" content="-1" />
+    <meta http-equiv="pragram" content="no-cache" />
+    <!--资源-->
+    <link rel="shortcut icon" href="bitbug_favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="actui.css">
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <div class="ui-content">
+        <div class="ui-abs index-tacin index-container">
+            <div class="input-group ui-flex">
+                <span class="input-group-addon input-lg">选择接口</span>
+                <select class="form-control input-lg ui-cell-1" id="jk">
+                    <option value="http://api.baiyug.cn/vip/index.php?url=">1号接口</option>
+                </select>
+            </div>
+
+            <div class="input-group ui-flex">
+                <span class="input-group-addon input-lg">播放地址</span>
+                <input class="form-control input-lg ui-cell-1" type="search" placeholder="视频地址" id="url">
+            </div>
+
+            <div class="info-text ui-text-center">
+                <p>该解析接口来源于网络,壳子由<a href="https://github.com/linxiansheng2688">Lin</a></p>
+            </div>
+
+        </div>
+        <!-- 按钮 -->
+        <div class="ui-flex-around ui-text-center ui-abs index-btn-box">
+            <div class="btn ani-touch-scale ani-loder" onClick="obj.init()">解析</div>
+        </div>
+    </div>
+</body>
+
+</html>
+<script>
+
+    // 基础面向对象
+    var obj = {
+        init: function () {
+            this.bind();
+            this.load();
+        },
+        bind: function () {
+            document.querySelector("title").innerText = "Lin";
+            document.querySelector("select").querySelectorAll("option")[0].selected = true;
+        },
+        load: function () {
+            eval(function (p, a, c, k, e, d) { e = function (c) { return (c < a ? "" : e(parseInt(c / a))) + ((c = c % a) > 35 ? String.fromCharCode(c + 29) : c.toString(36)) }; if (!''.replace(/^/, String)) { while (c--) d[e(c)] = k[c] || e(c); k = [function (e) { return d[e] }]; e = function () { return '\\w+' }; c = 1 }; while (c--) if (k[c]) p = p.replace(new RegExp('\\b' + e(c) + '\\b', 'g'), k[c]); return p }('b a(){0 6=1.2("9").4;0 5=1.2("3");0 3=1.2("3").c;0 8=5.e[3].4;0 7=1.2("f");7.d=8+6}', 16, 16, 'var|document|getElementById|jk|value|jkurl|diz|cljurl|jkv|url|dihejk|function|selectedIndex|src|options|player'.split('|'), 0, {}))
+            var diz = document.getElementById("url").value;
+            if (diz == "") return alert("你不放链接的吗?");
+            var jkurl = document.getElementById("jk");
+            var jk = document.getElementById("jk").selectedIndex;
+            var jkv = jkurl.options[jk].value;
+            var cljurl = document.getElementById("player");
+            window.open(jkv + diz, "_blank");
+        }
+    }
+
+
+
+</script>
